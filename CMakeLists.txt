@@ -3,4 +3,9 @@ project(Cymphony)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Cymphony src/main.cpp)
+include_directories(include)
+
+add_executable(Cymphony src/main.cpp
+        src/token_utils.cpp
+        src/lexer.cpp
+        src/token.cpp)

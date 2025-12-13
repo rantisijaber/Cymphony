@@ -4,8 +4,9 @@
 
 #ifndef CYMPHONY_TOKEN_HPP
 #define CYMPHONY_TOKEN_HPP
+#include <iostream>
 #include <string>
-
+#include "token_utils.hpp"
 
 enum class TokenType {
     Identifier,
@@ -28,6 +29,21 @@ enum class TokenType {
     Greater,
     GreaterEqual,
     Dot,
+    Increment,
+    Decrement,
+    PlusEquals,
+    MultiplyEquals,
+    MinusEquals,
+    DivideEquals,
+    ModEquals,
+    BitwiseAnd,
+    LogicAnd,
+    BitwiseOr,
+    LogicOr,
+    BitwiseXor,
+    LogicXor,
+    BitwiseNo,
+    LogicNo,
 
     // Keywords
     If,
@@ -35,6 +51,7 @@ enum class TokenType {
     For,
     While,
     Do,
+    Boolean,
     Int,
     Double,
     Float,
@@ -75,14 +92,19 @@ struct Token {
     int column_;
 
     // Constructor: Operators, Keywords, Punctuation, EOF
-    explicit Token(const TokenType type, int line = 1, int column = 1)
+    explicit Token(const TokenType type, int const line, int const column)
         :   type_(type),
             line_(line), column_(column) {}
 
     // Constructor: Identifiers and Literals
-    Token(const TokenType type, std::string value, int line = 1, int column = 1)
+    Token(const TokenType type, std::string value, const int line, const int column)
         :   type_(type), value_(std::move(value)),
             line_(line), column_(column) {}
+
+    void printToken() const;
+
+
+    [[nodiscard]] std::string tokenTypeToString() const;
 };
 
 #endif //CYMPHONY_TOKEN_HPP
