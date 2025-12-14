@@ -9,7 +9,7 @@
 
 void Lexer::printTokens() const {
     for (const Token& token : tokens_) {
-        token.printToken();
+        token.print_token();
     }
 }
 
