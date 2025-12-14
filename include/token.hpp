@@ -86,12 +86,10 @@ struct Token {
     int line_;
     int column_;
 
-    // Constructor: Operators, Keywords, Punctuation, EOF
-    explicit Token(const TokenType type, int const line, int const column)
+    Token(const TokenType type, int const line, int const column)
         :   type_(type),
             line_(line), column_(column) {}
 
-    // Constructor: Identifiers and Literals
     Token(const TokenType type, std::string value, const int line, const int column)
         :   type_(type), value_(std::move(value)),
             line_(line), column_(column) {}
