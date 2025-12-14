@@ -7,24 +7,24 @@
 
 
 
-TokenType token_utils::getSingleCharTokenType(const char c) {
-    if (isCharPunctuation(c)) return getPunctuationTokenType(c);
-    return getOperatorTokenType(c);
+TokenType token_utils::get_token_type(const char c) {
+    if (is_punctuation(c)) return get_punctuation_token_type(c);
+    return get_operator_token_type(c);
 }
 
 
-bool token_utils::isCharPunctuation(const char c) {
+bool token_utils::is_punctuation(const char c) {
     return c == '(' || c == ')' || c == '{' || c == '}'
     || c == '[' || c == ']' || c == ',' || c == ';';
 }
 
-bool token_utils::isCharOperator(const char c) {
+bool token_utils::is_operator(const char c) {
     return c == '+' || c == '-' || c == '*' || c == '/'
     || c == '%' || c == '=' || c == '<' || c == '>'
     || c == '.';
 }
 
-bool token_utils::isKeyword(const std::string& str) {
+bool token_utils::is_keyword(const std::string_view str) {
     return str == "if" || str == "else" || str == "for" || str == "while"
     || str == "do" || str == "boolean" || str == "int" || str == "double"
     || str == "float" || str == "char" || str == "long" || str == "struct"
@@ -33,7 +33,7 @@ bool token_utils::isKeyword(const std::string& str) {
     || str == "protected";
 }
 
-TokenType token_utils::getOperatorTokenType(const char c) {
+TokenType token_utils::get_punctuation_token_type(const char c) {
     switch (c) {
         case '(':
             return TokenType::LParen;
@@ -56,7 +56,7 @@ TokenType token_utils::getOperatorTokenType(const char c) {
     }
 }
 
-TokenType token_utils::getPunctuationTokenType(const char c) {
+TokenType token_utils::get_operator_token_type(const char c) {
     switch (c) {
         case '+':
             return TokenType::Plus;
@@ -81,7 +81,7 @@ TokenType token_utils::getPunctuationTokenType(const char c) {
     }
 }
 
-TokenType token_utils::getMultiCharTokenType(const std::unordered_map<std::string, TokenType>& multi_char_map, const std::string& str) {
+TokenType token_utils::get_token_type(const std::unordered_map<std::string_view, TokenType>& multi_char_map, const std::string_view str) {
     if (const auto iterator = multi_char_map.find(str); iterator != multi_char_map.end()) {
         return iterator->second;
     }

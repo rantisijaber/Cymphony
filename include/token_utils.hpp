@@ -7,17 +7,16 @@
 #include "token.hpp"
 
 namespace token_utils {
-    TokenType getSingleCharTokenType(char c); // will do switch for all single character tokens
-    TokenType getKeywordTokenType(const std::string& str);
-    TokenType getMultiCharTokenType(const std::unordered_map<std::string, TokenType>& multi_char_map,
-                                    const std::string& str);
-    TokenType getOperatorTokenType(char c);
-    TokenType getPunctuationTokenType(char c);
-    bool isKeyword(const std::string& str);
-    bool isCharIdentifier(char c);
-    bool isNumber(char c);
-    bool isCharPunctuation(char c);
-    bool isCharOperator(char c);
+    TokenType get_token_type(char c); // will do switch for all single character tokens
+    TokenType get_token_type(const std::unordered_map<std::string_view, TokenType>& multi_char_map,
+                            std::string_view str);
+    TokenType get_operator_token_type(char c);
+    TokenType get_punctuation_token_type(char c);
+    bool is_keyword(std::string_view str);
+    bool is_identifier(char c);
+    bool is_number(char c);
+    bool is_punctuation(char c);
+    bool is_operator(char c);
 
 }
 #endif //CYMPHONY_TOKEN_UTILS_HPP
