@@ -6,16 +6,13 @@
 #define CYMPHONY_TOKEN_HPP
 #include <iostream>
 #include <string>
-#include "token_utils.hpp"
 
 enum class TokenType {
     Identifier,
 
-    // Literals
     Number,
     String,
 
-    // Operators
     Plus,
     Minus,
     Multiply,
@@ -45,7 +42,6 @@ enum class TokenType {
     BitwiseNo,
     LogicNo,
 
-    // Keywords
     If,
     Else,
     For,
@@ -68,7 +64,6 @@ enum class TokenType {
     Private,
     Protected,
 
-    // Punctuation
     LParen,
     RParen,
     LCurly,
@@ -78,8 +73,8 @@ enum class TokenType {
     Comma,
     Semicolon,
     Colon,
+    Quote,
 
-    // End of File
     Eof
 
 };
@@ -101,10 +96,9 @@ struct Token {
         :   type_(type), value_(std::move(value)),
             line_(line), column_(column) {}
 
-    void printToken() const;
+    void print_token() const;
+    [[nodiscard]] std::string token_type_to_string() const;
 
-
-    [[nodiscard]] std::string tokenTypeToString() const;
 };
 
 #endif //CYMPHONY_TOKEN_HPP

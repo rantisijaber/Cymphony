@@ -4,19 +4,20 @@
 
 #include "token.hpp"
 
-void Token::printToken() const {
+void Token::print_token() const {
     if (value_.empty()) {
-        std::cout << "TYPE: " << tokenTypeToString()
+        std::cout << "TYPE: " << token_type_to_string()
         << " LINE: " << line_ << " COLUMN: " << column_ << std::endl;
     } else {
-        std::cout << "TYPE: " << tokenTypeToString()
-        << " LINE: " << line_ << " COLUMN: " << column_ << std::endl;
+        std::cout << "TYPE: " << token_type_to_string()
+        << " VALUE: " << value_ << " LINE: " << line_
+        << " COLUMN: " << column_ << std::endl;
     }
 
 
 }
 
-[[nodiscard]] std::string Token::tokenTypeToString() const {
+[[nodiscard]] std::string Token::token_type_to_string() const {
     switch (type_) {
         case TokenType::Identifier:
             return "IDENTIFIER";
