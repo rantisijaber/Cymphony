@@ -21,7 +21,7 @@ bool token_utils::is_punctuation(const char c) {
 bool token_utils::is_operator(const char c) {
     return c == '+' || c == '-' || c == '*' || c == '/'
     || c == '%' || c == '=' || c == '<' || c == '>'
-    || c == '.';
+    || c == '.' || c == '^' || c == '~' || c == '&';
 }
 
 bool token_utils::is_keyword(const std::string_view str) {
