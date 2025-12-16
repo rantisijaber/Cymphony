@@ -75,8 +75,6 @@ void Token::print_token() const {
             return "OPERATOR (LOGIC_OR)";
         case TokenType::BitwiseXor:
             return "OPERATOR (BITWISE_XOR)";
-        case TokenType::LogicXor:
-            return "OPERATOR (LOGIC_XOR)";
         case TokenType::BitwiseNo:
             return "OPERATOR (BITWISE_NO)";
         case TokenType::LogicNo:

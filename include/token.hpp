@@ -38,9 +38,11 @@ enum class TokenType {
     BitwiseOr,
     LogicOr,
     BitwiseXor,
-    LogicXor,
     BitwiseNo,
     LogicNo,
+    AndEqual,
+    OrEqual,
+    XorEqual,
 
     If,
     Else,
