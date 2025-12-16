@@ -27,7 +27,12 @@ public:
         {"-=", TokenType::MinusEquals},
         {"*=", TokenType::MultiplyEquals},
         {"/=", TokenType::DivideEquals},
-        {"%=", TokenType::ModEquals}
+        {"%=", TokenType::ModEquals},
+        {"||", TokenType::LogicOr},
+        {"&&", TokenType::LogicAnd},
+        {"&=", TokenType::AndEqual},
+        {"|=", TokenType::OrEqual},
+        {"^=", TokenType::XorEqual}
     };
 
     std::unordered_map<std::string_view, TokenType> multi_char_keyword_map = {
